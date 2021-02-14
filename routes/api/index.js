@@ -8,7 +8,7 @@ const thoughtRoutes = require('./thought-routes');
 //extending router 
 router.use('/user', userRoutes);
 //extending router
-router.use('/thougths', thoughtRoutes);
+router.use('/thought', thoughtRoutes);
 
 // exportting router
 module.exports = router;

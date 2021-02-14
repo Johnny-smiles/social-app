@@ -1,7 +1,6 @@
 // linking mongoose
 const { Schema, model } = require('mongoose');
-// linking reaction model
-const reactionSchema = require('./Reaction');
+
 // linking date formatting helper
 const dateFormat = require('../utils/dateFormat');
 
@@ -26,9 +25,7 @@ const thoughtSchema = new Schema(
             type: String,
             required: true
         },
-        // reactions array/ calling reaction schema
-        reactions: [reactionSchema] 
-    },
+     },
     {
     // setting data to json
         toJSON: {
@@ -38,11 +35,6 @@ const thoughtSchema = new Schema(
     }
 );
 
-// creating reaction virtual
-
-thoughtSchema.virtual('reactionCount').get(function() {
-    return this.reactions.length;
-  });
 
 // creating thought model
 const Thought = model('Thought', thoughtSchema);
